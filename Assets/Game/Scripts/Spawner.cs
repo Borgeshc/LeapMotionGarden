@@ -11,7 +11,7 @@ public class Spawner : MonoBehaviour
     {
         for(int i = 0; i < numberOfDirtObjects; i++)
         {
-            Instantiate(dirtObject, transform.position, Quaternion.identity);
+            Instantiate(dirtObject, transform.position, Quaternion.identity, transform);
             yield return new WaitForSeconds(.005f);
         }
     }
