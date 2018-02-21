@@ -5,15 +5,23 @@ using UnityEngine;
 public class PlantTrigger : MonoBehaviour
 {
     public Animator anim;
+    public GrowthManager growthManager;
 
     public GameObject succulent;
     public GameObject aloe;
     public GameObject miniCactus;
     public GameObject chrismasCactus;
     public GameObject flyTrap;
+    GameObject plant;
+
+    bool hasPlant;
 
     private void OnTriggerEnter(Collider other)
     {
+        if (hasPlant || growthManager.isGrowing) return;
+
+        StartCoroutine(growthManager.Growing());
+
         print("Seed Detected");
         if(other.tag.Equals("Seed"))
         {
@@ -21,23 +29,29 @@ public class PlantTrigger : MonoBehaviour
             switch (seed.seedType)
             {
                 case Seed.SeedType.Succulent:
-                    succulent.SetActive(true);
+                    plant = Instantiate(succulent);
                     break;
                 case Seed.SeedType.Aloe:
-                    aloe.SetActive(true);
+                    plant = Instantiate(aloe);
                     break;
                 case Seed.SeedType.MiniCactus:
-                    miniCactus.SetActive(true);
+                    plant = Instantiate(miniCactus);
                     break;
                 case Seed.SeedType.ChrismasCactus:
-                    chrismasCactus.SetActive(true);
+                    plant = Instantiate(chrismasCactus); ;
                     break;
                 case Seed.SeedType.FlyTrap:
-                    flyTrap.SetActive(true);
+                    plant = Instantiate(flyTrap);
                     break;
             }
 
-            Destroy(other);
+            plant.transform.parent = transform;
+            plant.transform.localRotation = Quaternion.identity;
+            plant.transform.localPosition = Vector3.zero;
+
+            hasPlant = true;
+
+            Destroy(other.gameObject);
             anim.SetTrigger("Grow");
         }
     }
