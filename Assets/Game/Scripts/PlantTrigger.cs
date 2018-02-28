@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlantTrigger : MonoBehaviour
 {
@@ -13,9 +12,6 @@ public class PlantTrigger : MonoBehaviour
     public GameObject miniCactus;
     public GameObject chrismasCactus;
     public GameObject flyTrap;
-
-    public Image waterMeter;
-
     GameObject plant;
 
     bool hasPlant;
@@ -26,6 +22,7 @@ public class PlantTrigger : MonoBehaviour
 
         StartCoroutine(growthManager.Growing());
 
+        print("Seed Detected");
         if(other.tag.Equals("Seed"))
         {
             Seed seed = other.GetComponent<Seed>();
@@ -51,8 +48,6 @@ public class PlantTrigger : MonoBehaviour
             plant.transform.parent = transform;
             plant.transform.localRotation = Quaternion.identity;
             plant.transform.localPosition = Vector3.zero;
-
-            plant.GetComponent<Grow>().SetWaterMeter(waterMeter);
 
             hasPlant = true;
 

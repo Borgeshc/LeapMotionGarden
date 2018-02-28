@@ -19,8 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4568812426908236}
-  - component: {fileID: 114459198637010126}
-  - component: {fileID: 65216002385811414}
+  - component: {fileID: 95263072084721756}
   m_Layer: 0
   m_Name: Xmas Plant
   m_TagString: Untagged
@@ -66,7 +65,7 @@ Transform:
   m_GameObject: {fileID: 1504701995115466}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4044361814206686}
   m_Father: {fileID: 0}
@@ -113,28 +112,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1924481850484614}
   m_Mesh: {fileID: 4300000, guid: 274b889f7c004e942be9bdb140598255, type: 3}
---- !u!65 &65216002385811414
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1504701995115466}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.3, z: 0.5}
-  m_Center: {x: 0, y: 0, z: 0.2}
---- !u!114 &114459198637010126
-MonoBehaviour:
+--- !u!95 &95263072084721756
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1504701995115466}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78def7756931e4149b902aa8783468ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxTime: 45
-  timeIncrease: 5
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9cd6d75cebcbd084db28c37594a692d5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
