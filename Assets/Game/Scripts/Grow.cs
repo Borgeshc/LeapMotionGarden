@@ -21,8 +21,13 @@ public class Grow : MonoBehaviour
 
     bool timer;
 
+    PlantTrigger trigger;
+
     private void Start()
     {
+        if (!ready)
+            ready = true;
+
         currentTime = maxTime / 7;
     }
 
@@ -54,13 +59,15 @@ public class Grow : MonoBehaviour
         timer = false;
     }
 
-    public void SetWaterMeter(Image _waterMeter)
+    public void SetWaterMeter(Image _waterMeter, PlantTrigger _trigger)
     {
         waterMeter = _waterMeter;
+        trigger = _trigger;
     }
 
     void PlantDied()
     {
+        trigger.PlantDied();
         Destroy(gameObject);
     }
 
@@ -94,9 +101,6 @@ public class Grow : MonoBehaviour
 
     IEnumerator Fill()
     {
-        if (!ready)
-            ready = true;
-
         currentTime += timeIncrease;
         UpdateWater();
         yield return new WaitForSeconds(.5f);

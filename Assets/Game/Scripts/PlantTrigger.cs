@@ -52,12 +52,17 @@ public class PlantTrigger : MonoBehaviour
             plant.transform.localRotation = Quaternion.identity;
             plant.transform.localPosition = Vector3.zero;
 
-            plant.GetComponent<Grow>().SetWaterMeter(waterMeter);
+            plant.GetComponent<Grow>().SetWaterMeter(waterMeter, this);
 
             hasPlant = true;
 
             Destroy(other.gameObject);
             anim.SetTrigger("Grow");
         }
+    }
+
+    public void PlantDied()
+    {
+        hasPlant = false;
     }
 }
