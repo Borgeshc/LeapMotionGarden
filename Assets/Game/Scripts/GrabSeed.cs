@@ -22,12 +22,6 @@ public class GrabSeed : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if(currentItem)
-        print(currentItem);
-    }
-
     public void PickUpItem()
     {
         if(currentItem != null)

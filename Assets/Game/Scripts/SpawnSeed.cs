@@ -8,7 +8,6 @@ public class SpawnSeed : MonoBehaviour
 
     public void Activated()
     {
-        print("Activated");
         Seed checkSeed = gameObject.GetComponentInChildren<Seed>();
         if (checkSeed == null)
         {
