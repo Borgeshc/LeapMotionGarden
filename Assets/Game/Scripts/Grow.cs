@@ -105,7 +105,6 @@ public class Grow : MonoBehaviour
 
     void UpdateWater()
     {
-        print(currentTime);
         waterMeter.fillAmount = (currentTime / maxTime);
     }
 }
